@@ -28,10 +28,15 @@ public class Main {
         service.bookRoom(2,1, LocalDate.of(2026,7,7), LocalDate.of(2026,7,9));
         service.bookRoom(2,3, LocalDate.of(2026,7,7), LocalDate.of(2026,7,8));
 
+        //------------------------Modifying Room Data---------------------
+
         service.setRoom(1,RoomType.MASTER,10000);
+
+        //-----------------------Printing All Users-----------------------
 
         service.printAllUsers();
 
+        //----------------------Printing All Rooms And Bookings------------
         service.printAll();
     }
 }

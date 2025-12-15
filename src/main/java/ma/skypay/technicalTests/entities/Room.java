@@ -9,14 +9,14 @@ public class Room {
     private RoomType roomType;
     private int pricePerNight;
 
+    public Room(int id) {
+        this.id = id;
+    }
+
     public Room(int id, RoomType roomType, int pricePerNight) {
         this.id = id;
         this.roomType = roomType;
         this.pricePerNight = pricePerNight;
-    }
-
-    public Room(int id) {
-        this.id = id;
     }
 
     public int getId() {
