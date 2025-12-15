@@ -8,7 +8,6 @@ import ma.skypay.technicalTests.enums.RoomType;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Service {
 
@@ -65,13 +64,15 @@ public class Service {
 
     public void printAll(){
         printHeader("Rooms");
-        Collections.reverse(rooms);
-        rooms.forEach(System.out::println);
+        for (int i = rooms.size() - 1; i >= 0; i--) {
+            System.out.println(rooms.get(i));
+        }
         printFooter();
 
         printHeader("Bookings");
-        Collections.reverse(bookings);
-        bookings.forEach(System.out::println);
+        for (int i = bookings.size() - 1; i >= 0; i--) {
+            System.out.println(bookings.get(i));
+        }
         printFooter();
     }
 
@@ -90,8 +91,9 @@ public class Service {
 
     public void printAllUsers(){
         printHeader("Users");
-        Collections.reverse(users);
-        users.forEach(System.out::println);
+        for (int i = users.size() - 1; i >= 0; i--) {
+            System.out.println(users.get(i));
+        }
         printFooter();
     }
 
@@ -137,12 +139,12 @@ public class Service {
     }
 
     private Room getRoom(int roomId){
-        for(Room room : rooms){
-            if(room.getId() == roomId){
-                return room;
-            }
-        }
-        return null;
+        return rooms.stream()
+                .filter(room -> room.getId() == roomId)
+                .findFirst()
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Room not found with id: " + roomId)
+                );
     }
 
     private void printHeader(String title){
@@ -154,4 +156,5 @@ public class Service {
         String toPrint = "-----------------------------------";
         System.out.println(toPrint+toPrint);
     }
+
 }

@@ -30,8 +30,8 @@ public class Main {
 
         service.setRoom(1,RoomType.MASTER,10000);
 
-
         service.printAllUsers();
+
         service.printAll();
     }
 }
