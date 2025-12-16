@@ -44,6 +44,9 @@ public class Service {
                             checkOut
                     )
             );
+            System.out.println("Booking Done successfully");
+        }else {
+            System.out.println("Invalid Data");
         }
     }
 
